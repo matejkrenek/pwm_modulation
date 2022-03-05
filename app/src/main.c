@@ -1,4 +1,5 @@
-#include "gpio.c"
+#include "gpio.h"
+#include "helpers.h"
 
 Button B0_state = {0, 0, 10};
 Button B1_state = {0, 0, 10};
@@ -6,7 +7,6 @@ PWM pwm = {125, 0};
 
 void main(void)
 {
-    gpio.deinit();
     CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
     gpio.init(GPIOB, GPIO_PIN_0, GPIO_MODE_IN_PU_IT);
     gpio.init(GPIOB, GPIO_PIN_1, GPIO_MODE_IN_PU_IT);
